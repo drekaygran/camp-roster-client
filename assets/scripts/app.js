@@ -14,4 +14,5 @@ $(() => {
   authUi.signedOut()
   authEvents.addHandlers()
   camperEvents.addHandlers()
+  $('.hidden').hide()
 })

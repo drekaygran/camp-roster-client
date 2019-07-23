@@ -16,7 +16,7 @@
       <section class="auth">
         <div class="auth-message"></div>
         <div class="sign-up-screen signed-out">
-          <h3>Sign Up</h3>
+          <h4>Sign Up</h4>
           <form id="sign-up">
             <input type="text" placeholder="Email" name="credentials[email]">
             <input type="password" placeholder="Password" name="credentials[password]">
@@ -25,7 +25,7 @@
           </form>
         </div>
         <div class="sign-in-screen signed-out">
-          <h3>Sign In</h3>
+          <h4>Sign In</h4>
           <form id="sign-in">
             <input type="text" placeholder="Email" name="credentials[email]">
             <input type="password" placeholder="Password" name="credentials[password]">
@@ -33,7 +33,7 @@
           </form>
         </div>
         <div class="change-password-screen signed-in">
-          <h3>Change Password</h3>
+          <h4>Change Password</h4>
           <form id="change-password">
             <input type="password" placeholder="Old Password" name="passwords[old]">
             <input type="password" placeholder="New Password" name="passwords[new]">
@@ -41,7 +41,7 @@
           </form>
         </div>
         <div class="sign-out-screen signed-in">
-          <h3>Sign Out</h3>
+          <h4>Sign Out</h4>
           <form id="sign-out">
             <button class="btn btn-primary" type="submit">Submit</button>
           </form>
@@ -51,10 +51,23 @@
       <section class="camper-table signed-in">
         <button class="btn btn-primary get-campers" type="button">All Campers</button>
         <button class="btn btn-primary" type="button">Search</button>
-        <button class="btn btn-primary" type="button">New Camper</button>
+        <button class="btn btn-primary create-camper-button" type="button">New Camper</button>
         <button class="btn btn-primary" type="button">Other thing</button>
       </section>
       <section class="camper-info">
+        <div class="create-camper hidden">
+          <form class="create-camper">
+            <h4>Let's create a new camper!  Enter their info below.</h4>
+            <input type="text" placeholder="First Name" name="camper[first_name]">
+            <input type="text" placeholder="Last Name" name="camper[last_name]">
+            <input type="text" placeholder="Allergies" name="camper[allergies]">
+            <input type="date" placeholder="Date of Birth" name="camper[dob]" max="2014-01-01" min="2003-01-01">
+            <input type="text" placeholder="Parent's Name" name="camper[parent_name]">
+            <input type="email" placeholder="Parent's Email Address" name="camper[parent_email]">
+            <input type="text" placeholder="Parent's Phone Number" name="camper[parent_phone]">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </form>
+        </div>
       </section>
     </body>
 </html>
