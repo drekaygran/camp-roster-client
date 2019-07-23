@@ -4,23 +4,28 @@ const signInMessage = require('../templates/sign-in-message.handlebars')
 const changePasswordMessage = require('../templates/change-password-message.handlebars')
 const signOutMessage = require('../templates/sign-out-message.handlebars')
 const store = require('./../store')
+const api = require('./api.js')
 // const api = require('./api')
 
 const signedIn = () => {
   $('.signed-out').hide()
   $('.signed-in').show()
+  $('form').trigger('reset')
 }
 
 const signedOut = () => {
   $('.signed-in').hide()
   $('.signed-out').show()
+  $('form').trigger('reset')
 }
 
 const signUpSuccess = data => {
+  api.signIn(store.save)
+    .then(signInSuccess)
   const successMessage = signUpMessage({ input: data })
   $('.auth-message').html(successMessage)
-  $('form').trigger('reset')
   signedIn()
+  store.user = data.user
 }
 
 const signUpFailure = data => {
@@ -32,8 +37,8 @@ const signUpFailure = data => {
 const signInSuccess = data => {
   const successMessage = signInMessage({ input: data })
   $('.auth-message').html(successMessage)
-  $('form').trigger('reset')
   signedIn()
+  store.user = data.user
 }
 
 const signInFailure = data => {
@@ -55,9 +60,8 @@ const changePasswordFailure = data => {
 }
 
 const signOutSuccess = data => {
-  const successMessage = signOutMessage({ input: data })
+  const successMessage = signOutMessage({ input: 'success' })
   $('.auth-message').html(successMessage)
-  $('form').trigger('reset')
   store.user = null
   signedOut()
 }

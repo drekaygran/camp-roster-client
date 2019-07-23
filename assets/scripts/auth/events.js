@@ -8,12 +8,9 @@ const ui = require('./ui')
 const onSignUp = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  store.data = data
+  store.save = data
   api.signUp(data)
-    .then(
-      ui.signUpSuccess,
-      api.signIn(store.data)
-    )
+    .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }
 
@@ -37,7 +34,7 @@ const onSignOut = event => {
   event.preventDefault()
   api.signOut(event)
     .then(ui.signOutSuccess)
-    .catch(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
 
 const addHandlers = () => {
