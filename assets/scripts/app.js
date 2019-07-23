@@ -6,6 +6,12 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
+const authEvents = require('./auth/events.js')
+const authUi = require('./auth/ui.js')
+const camperEvents = require('./camper-data/events.js')
+
 $(() => {
-  // your JS code goes here
+  authUi.signedOut()
+  authEvents.addHandlers()
+  camperEvents.addHandlers()
 })

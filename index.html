@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Camp Roster</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,47 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Camp Roster</h1>
+      <section class="auth">
+        <div class="auth-message"></div>
+        <div class="sign-up-screen signed-out">
+          <h3>Sign Up</h3>
+          <form id="sign-up">
+            <input type="text" placeholder="Email" name="credentials[email]">
+            <input type="password" placeholder="Password" name="credentials[password]">
+            <input type="password" placeholder="Confirm Password" name="credentials[password_confirmation]">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="sign-in-screen signed-out">
+          <h3>Sign In</h3>
+          <form id="sign-in">
+            <input type="text" placeholder="Email" name="credentials[email]">
+            <input type="password" placeholder="Password" name="credentials[password]">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="change-password-screen signed-in">
+          <h3>Change Password</h3>
+          <form id="change-password">
+            <input type="password" placeholder="Old Password" name="passwords[old]">
+            <input type="password" placeholder="New Password" name="passwords[new]">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="sign-out-screen signed-in">
+          <h3>Sign Out</h3>
+          <form id="sign-out">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="camper-table signed-in">
+        <button class="btn btn-primary get-campers" type="button">All Campers</button>
+        <button class="btn btn-primary" type="button">Search</button>
+        <button class="btn btn-primary" type="button">Something Else</button>
+        <button class="btn btn-primary" type="button">Other thing</button>
+      </section>
     </body>
 </html>
