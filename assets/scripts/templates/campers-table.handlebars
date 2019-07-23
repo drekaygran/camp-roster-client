@@ -1,0 +1,30 @@
+{{#each campers as |camper|}}
+  {{log camper}}
+  <div data-id="{{camper.id}}">
+    <h6>Name:</h6>
+    <h3>
+      {{camper.first_name}} {{camper.last_name}}
+    </h3>
+    <h6>Allergies:</h6>
+    <h3>
+      {{camper.allergies}}
+    </h3>
+    <h6>Date of birth:</h6>
+    <h3>
+      {{camper.dob}}
+    </h3>
+    <h6>Parent Contact Info:</h6>
+    <h3>
+      {{camper.parent_name}}
+      {{camper.parent_email}}
+      {{camper.parent_phone}}
+    </h3>
+    <!-- <p>
+      {{#if book.author}}
+        {{book.author}}
+      {{else}}
+        No author provided.
+      {{/if}}
+    </p> -->
+  </div>
+{{/each}}

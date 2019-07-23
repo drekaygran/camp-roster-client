@@ -1,10 +1,11 @@
 
-// const signUpMessage = require('../templates/sign-up-message.handlebars')
+const campersTable = require('../templates/campers-table.handlebars')
 // const store = require('./../store')
 // const api = require('./api')
 
 const displayCampers = data => {
-  console.log(data)
+  const displayTable = campersTable({ campers: data.campers })
+  $('.camper-info').html(displayTable)
 }
 
 module.exports = {
