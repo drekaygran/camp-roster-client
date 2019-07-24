@@ -82,7 +82,57 @@
             <div class="show-camper-content">
             </div>
           </form>
-          <!-- Modal -->
+          <!-- Edit Modal -->
+  <div class="modal fade" id="editModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">First Name:</label>
+              <input type="text" class="form-control" id="first_name">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Last Name:</label>
+              <input type="text" class="form-control" id="last_name">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Allergies:</label>
+              <input type="text" class="form-control" id="allergies">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Date of Birth:</label>
+              <input type="date" class="form-control" id="dob" max="2014-01-01" min="2003-01-01">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Parent First Name:</label>
+              <input type="text" class="form-control" id="parent_name">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Parent Email:</label>
+              <input class="form-control" id="parent_email"></input>
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Parent Phone Number:</label>
+              <input class="form-control" id="parent_phone"></input>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+          <!-- Delete Modal -->
           <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">

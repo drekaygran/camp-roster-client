@@ -5,10 +5,7 @@ const store = require('./../store')
 const getCampers = () => {
   return $.ajax({
     url: config.apiUrl + '/campers',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
+    method: 'GET'
   })
 }
 

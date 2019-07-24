@@ -66,6 +66,21 @@ const deleteCamperSuccess = data => {
   }, 5000)
 }
 
+$('#editModalScrollable').on('show.bs.modal', function (event) {
+  const button = $(event.relatedTarget) // Button that triggered the modal
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  const modal = $(this)
+  modal.find('.modal-title').text(`Update ${button.data('first')}'s information`)
+  modal.find('#first_name').val(button.data('first'))
+  modal.find('#last_name').val(button.data('last'))
+  modal.find('#allergies').val(button.data('allergies'))
+  modal.find('#dob').val(button.data('dob'))
+  modal.find('#parent_name').val(button.data('first'))
+  modal.find('#parent_phone').val(button.data('phone'))
+  modal.find('#parent_email').val(button.data('email'))
+})
+
 module.exports = {
   displayCampers,
   getCampersFailure,

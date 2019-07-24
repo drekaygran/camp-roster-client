@@ -19,8 +19,7 @@
     </p>
     <div>
       {{#if editable}}
-
-          <button class="btn btn-primary edit-camper" type="button" data-toggle="modal" data-target="#editModal">Edit</button>
+          <button class="btn btn-primary edit-camper" type="button" data-toggle="modal" data-target="#editModalScrollable" data-first={{camper.first_name}} data-last={{camper.last_name}} data-allergies={{camper.allergies}} data-dob={{camper.dob}} data-parent={{camper.parent_name}} data-email={{camper.parent_email}} data-phone={{camper.parent_phone}}>Edit</button>
 
           <!-- Button trigger delete modal -->
           <button class="btn btn-danger delete-camper" type="button" data-toggle="modal" data-target="#deleteModal" value={{camper.id}}>Delete</button>

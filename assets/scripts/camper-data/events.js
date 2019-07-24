@@ -45,6 +45,12 @@ const onDeleteCamper = () => {
     .catch(console.log)
 }
 
+// const openEditCamperForm = () => {
+//   const idToEdit = $('.edit-camper').attr('value')
+//   console.log('hello', idToEdit)
+//   $('.edit-camper-form').html(editCamper({ id: idToEdit }))
+// }
+
 const addHandlers = () => {
   $('.get-campers').on('click', onGetCampers)
   $('.create-camper-button').on('click', onCreateCamperOpen)
@@ -52,6 +58,7 @@ const addHandlers = () => {
   $('.show-camper-button').on('click', onShowCamperOpen)
   $('.show-camper').on('submit', onShowCamper)
   $('#delete-camper-final').on('click', onDeleteCamper)
+  // $('.edit-camper').on('click', openEditCamperForm)
 }
 
 module.exports = {
