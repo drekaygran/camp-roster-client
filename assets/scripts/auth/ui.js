@@ -15,6 +15,7 @@ const signedIn = () => {
 
 const signedOut = () => {
   $('.signed-in').hide()
+  $('.hidden').hide()
   $('.signed-out').show()
   $('form').trigger('reset')
 }
@@ -24,6 +25,9 @@ const signUpSuccess = data => {
     .then(signInSuccess)
   const successMessage = signUpMessage({ input: data })
   $('.auth-message').html(successMessage)
+  setTimeout(() => {
+    $('.auth-message').html('')
+  }, 5000)
   signedIn()
   store.user = data.user
 }
@@ -31,12 +35,18 @@ const signUpSuccess = data => {
 const signUpFailure = data => {
   const errorMessage = signUpMessage({ input: '' })
   $('.auth-message').html(errorMessage)
+  setTimeout(() => {
+    $('.auth-message').html('')
+  }, 5000)
   $('form').trigger('reset')
 }
 
 const signInSuccess = data => {
   const successMessage = signInMessage({ input: data })
   $('.auth-message').html(successMessage)
+  setTimeout(() => {
+    $('.auth-message').html('')
+  }, 5000)
   signedIn()
   store.user = data.user
 }
@@ -44,24 +54,36 @@ const signInSuccess = data => {
 const signInFailure = data => {
   const errorMessage = signInMessage({ input: '' })
   $('.auth-message').html(errorMessage)
+  setTimeout(() => {
+    $('.auth-message').html('')
+  }, 5000)
   $('form').trigger('reset')
 }
 
 const changePasswordSuccess = data => {
   const successMessage = changePasswordMessage({ input: data })
   $('.auth-message').html(successMessage)
+  setTimeout(() => {
+    $('.auth-message').html('')
+  }, 5000)
   $('form').trigger('reset')
 }
 
 const changePasswordFailure = data => {
   const errorMessage = changePasswordMessage({ input: '' })
   $('.auth-message').html(errorMessage)
+  setTimeout(() => {
+    $('.auth-message').html('')
+  }, 5000)
   $('form').trigger('reset')
 }
 
 const signOutSuccess = data => {
   const successMessage = signOutMessage({ input: 'success' })
   $('.auth-message').html(successMessage)
+  setTimeout(() => {
+    $('.auth-message').html('')
+  }, 5000)
   store.user = null
   signedOut()
 }
@@ -69,6 +91,9 @@ const signOutSuccess = data => {
 const signOutFailure = data => {
   const errorMessage = signOutMessage({ input: '' })
   $('.auth-message').html(errorMessage)
+  setTimeout(() => {
+    $('.auth-message').html('')
+  }, 5000)
   $('form').trigger('reset')
 }
 

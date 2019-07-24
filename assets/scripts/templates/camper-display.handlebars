@@ -1,5 +1,4 @@
-{{#each campers as |camper|}}
-  <div data-id="{{camper.id}}">
+  <div>
     <h6>Name:</h6>
     <p>
       {{camper.first_name}} {{camper.last_name}}
@@ -18,6 +17,15 @@
       {{camper.parent_email}}
       {{camper.parent_phone}}
     </p>
+    <div>
+      {{#if editable}}
+
+          <button class="btn btn-primary edit-camper" type="button" data-toggle="modal" data-target="#editModal">Edit</button>
+
+          <!-- Button trigger delete modal -->
+          <button class="btn btn-danger delete-camper" type="button" data-toggle="modal" data-target="#deleteModal" value={{camper.id}}>Delete</button>
+      {{/if}}
+    </div>
     <!-- <p>
       {{#if book.author}}
         {{book.author}}
@@ -25,5 +33,5 @@
         No author provided.
       {{/if}}
     </p> -->
+
   </div>
-{{/each}}

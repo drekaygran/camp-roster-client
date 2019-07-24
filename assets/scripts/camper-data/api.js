@@ -5,6 +5,16 @@ const store = require('./../store')
 const getCampers = () => {
   return $.ajax({
     url: config.apiUrl + '/campers',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const showCamper = id => {
+  return $.ajax({
+    url: config.apiUrl + '/campers/' + id,
     method: 'GET'
   })
 }
@@ -20,7 +30,19 @@ const createCamper = data => {
   })
 }
 
+const deleteCamper = id => {
+  return $.ajax({
+    url: config.apiUrl + '/campers/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   getCampers,
-  createCamper
+  createCamper,
+  showCamper,
+  deleteCamper
 }
