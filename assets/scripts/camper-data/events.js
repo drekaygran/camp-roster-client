@@ -40,20 +40,27 @@ const onCreateCamper = event => {
 
 const onDeleteCamper = () => {
   const idToDelete = $('.delete-camper').attr('value')
-  // console.log(idToDelete)
   api.deleteCamper(idToDelete)
     .then(ui.deleteCamperSuccess)
-    .catch(console.log)
+    .catch(ui.deleteCamperFailure)
 }
 
 const onUpdateCamper = event => {
-  // debugger
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(store.id)
   api.updateCamper(data, store.id)
     .then(ui.updateCamperSuccess)
-    .catch(console.log)
+    .catch(ui.updateCamperFailure)
+}
+
+const moveButtons = () => {
+  $('.camper-action').width(15).height(15)
+  $('.home').width(15).height(15)
+}
+
+const revertToOriginalSize = () => {
+  $('.camper-action').width(30).height(30)
+  $('.home').width(30).height(30)
 }
 
 const addHandlers = () => {
@@ -64,6 +71,9 @@ const addHandlers = () => {
   $('.show-camper').on('submit', onShowCamper)
   $('#delete-camper-final').on('click', onDeleteCamper)
   $('.edit-camper-form').on('submit', onUpdateCamper)
+  $('.camper-action').on('click', moveButtons)
+  $('.home').on('click', revertToOriginalSize)
+  // $('.show-camper-content').on('click', 'data('id')', )
 }
 
 module.exports = {

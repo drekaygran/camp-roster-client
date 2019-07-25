@@ -11,53 +11,84 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
-      <h1>Camp Roster</h1>
+    <body class="container">
+      <div class="opaque">
       <section class="auth">
-        <div class="auth-message"></div>
-        <div class="sign-up-screen signed-out">
-          <h4>Sign Up</h4>
-          <form id="sign-up">
-            <input type="text" placeholder="Email" name="credentials[email]">
-            <input type="password" placeholder="Password" name="credentials[password]">
-            <input type="password" placeholder="Confirm Password" name="credentials[password_confirmation]">
-            <button class="btn btn-primary" type="submit">Submit</button>
-          </form>
+        <div class="row justify-content-end">
+          <h1 class="col-lg-6">Camp Roster</h1>
         </div>
-        <div class="sign-in-screen signed-out">
-          <h4>Sign In</h4>
-          <form id="sign-in">
-            <input type="text" placeholder="Email" name="credentials[email]">
-            <input type="password" placeholder="Password" name="credentials[password]">
-            <button class="btn btn-primary" type="submit">Submit</button>
-          </form>
+        <div class="row justify-content-end">
+          <div class="auth-message col-lg-6"></div>
         </div>
-        <div class="change-password-screen signed-in">
-          <h4>Change Password</h4>
-          <form id="change-password">
-            <input type="password" placeholder="Old Password" name="passwords[old]">
-            <input type="password" placeholder="New Password" name="passwords[new]">
-            <button class="btn btn-primary" type="submit">Submit</button>
-          </form>
+        <div class="row justify-content-end">
+          <div class="sign-in-screen signed-out justify-content-center flex-column col-6 col-lg-3">
+            <h4>Sign In</h4>
+            <form id="sign-in">
+              <input type="email" placeholder="Email" name="credentials[email]">
+              <input type="password" placeholder="Password" name="credentials[password]">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+          </div>
+          <div class="sign-up-screen signed-out justify-content-center flex-column col-6 col-lg-3">
+            <h4>Sign Up</h4>
+            <form id="sign-up">
+              <input type="email" placeholder="Email" name="credentials[email]">
+              <input type="password" placeholder="Password" name="credentials[password]">
+              <input type="password" placeholder="Confirm Password" name="credentials[password_confirmation]">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+          </div>
         </div>
-        <div class="sign-out-screen signed-in">
-          <h4>Sign Out</h4>
-          <form id="sign-out">
-            <button class="btn btn-primary" type="submit">Sign Out</button>
-          </form>
+
+<!-- Account dropdown -->
+        <div class="row justify-content-end no-gutters dropdown signed-in">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button class="dropdown-item" type="button" data-target="#change-password-modal" data-toggle="modal">Change Password</button>
+            <button id="sign-out" class="dropdown-item" type="button">Sign Out</button>
+          </div>
+        </div>
+
+<!-- change password modal -->
+        <div id="change-password-modal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content change-password-screen signed-in">
+              <div class="modal-header">
+                <h5 class="modal-title">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="change-password">
+                  <input type="password" placeholder="Old Password" name="passwords[old]">
+                  <input type="password" placeholder="New Password" name="passwords[new]">
+                  <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
 <!-- buttons pop up after login -->
-      <section class="signed-in">
-        <button class="btn btn-primary get-campers" type="button">All Campers</button>
-        <button class="btn btn-primary show-camper-button" type="button">Search</button>
-        <button class="btn btn-primary create-camper-button" type="button">New Camper</button>
-        <button class="btn btn-primary" type="button">Other thing</button>
-      </section>
+      <div class="row">
+        <section class="signed-in col-6-lg container">
+          <div class="row justify-content-center">
+            <button class="btn col-3 btn-primary camper-action get-campers" type="button">All Campers</button>
+            <button class="btn col-3 btn-primary camper-action show-camper-button" type="button">Search</button>
+          </div>
+          <div class="row justify-content-center">
+            <button class="btn col-3 btn-primary create-camper-button camper-action" type="button">New Camper</button>
+            <button class="btn col-3 btn-primary home" type="button" onclick="window.location.href = './';">Home</button>
+          </div>
+        </section>
+      </div>
 
 <!-- camper info pops up here -->
-      <section>
+      <section class="row justify-content-center col-6-lg">
         <div class="content-message">
         </div>
         <div class="camper-info hidden">
@@ -65,29 +96,38 @@
         <div class="create-camper hidden">
           <form class="create-camper">
             <h4>Let's create a new camper!  Enter their info below.</h4>
-            <input type="text" placeholder="First Name" name="camper[first_name]">
-            <input type="text" placeholder="Last Name" name="camper[last_name]">
-            <input type="text" placeholder="Allergies" name="camper[allergies]">
-            <input type="date" placeholder="Date of Birth" name="camper[dob]" max="2014-01-01" min="2003-01-01">
-            <input type="text" placeholder="Parent's Name" name="camper[parent_name]">
-            <input type="email" placeholder="Parent's Email Address" name="camper[parent_email]">
-            <input type="text" placeholder="Parent's Phone Number" name="camper[parent_phone]">
+            <input class="form-control" type="text" placeholder="First Name" name="camper[first_name]">
+            <input class="form-control" type="text" placeholder="Last Name" name="camper[last_name]">
+            <input class="form-control" type="text" placeholder="Allergies" name="camper[allergies]">
+            <input class="form-control" type="date" placeholder="Date of Birth" name="camper[dob]" max="2014-01-01" min="2003-01-01">
+            <input class="form-control" type="text" placeholder="Parent's Name" name="camper[parent_name]">
+            <input class="form-control" type="email" placeholder="Parent's Email Address" name="camper[parent_email]">
+            <input class="form-control" type="text" placeholder="Parent's Phone Number" name="camper[parent_phone]">
             <button class="btn btn-primary" type="submit">Submit</button>
           </form>
         </div>
-        <div class="show-camper-box hidden">
-          <form class="show-camper">
-            <input name="camper[id]" placeholder="Camper ID" type="number">
-            <button class="btn btn-primary" type="submit">Search</button>
-            <div class="show-camper-content">
-            </div>
-          </form>
+          <div class="show-camper-box hidden form-row">
+            <form class="show-camper">
+              <div class="col">
+                <label class="col-form-label">Search By Id:</label>
+                <input name="camper[id]" placeholder="Camper ID" type="number" class="form-control">
+                <button class="btn btn-primary" type="submit">Search</button>
+              </div>
+              <!-- <div class="col">
+                <label class="col-form-label">Search By First Name:</label>
+                <input name="camper[first_name]" placeholder="Camper's First Name" type="text" class="form-control">
+                <button class="btn btn-primary" type="submit">Search</button>
+              </div> -->
+              <div class="show-camper-content">
+              </div>
+            </form>
+          </div>
 
           <!-- Edit Modal -->
-  <div class="modal fade" id="editModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header edit-message">
           <h5 class="modal-title" id="exampleModalLabel">New message</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -120,7 +160,7 @@
   </div>
 
           <!-- Delete Modal -->
-          <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -140,7 +180,7 @@
             </div>
           </div>
 
-        </div>
-      </section>
+          </section>
+      </div>
     </body>
 </html>

@@ -1,29 +1,28 @@
-{{#each campers as |camper|}}
-  <div data-id="{{camper.id}}">
-    <h6>Name:</h6>
-    <p>
-      {{camper.first_name}} {{camper.last_name}}
-    </p>
-    <h6>Allergies:</h6>
-    <p>
-      {{camper.allergies}}
-    </p>
-    <h6>Date of birth:</h6>
-    <p>
-      {{camper.dob}}
-    </p>
-    <h6>Parent Contact Info:</h6>
-    <p>
-      {{camper.parent_name}}
-      {{camper.parent_email}}
-      {{camper.parent_phone}}
-    </p>
-    <!-- <p>
-      {{#if book.author}}
-        {{book.author}}
-      {{else}}
-        No author provided.
-      {{/if}}
-    </p> -->
-  </div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Allegies</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Parent's Name</th>
+      <th scope="col">Parent's Email</th>
+      <th scope="col">Parent's Phone</th>
+    </tr>
+  </thead>
+  {{#each campers as |camper|}}
+    <div data-id="{{camper.id}}">
+      <tbody>
+        <tr>
+          <th scope="row">{{camper.id}}</th>
+          <td>{{camper.first_name}} {{camper.last_name}}</td>
+          <td>{{camper.allergies}}</td>
+          <td>{{camper.dob}}</td>
+          <td>{{camper.parent_name}}</td>
+          <td>{{camper.parent_email}}</td>
+          <td>{{camper.parent_phone}}</td>
+        </tr>
+      </tbody>
 {{/each}}
+  </tbody>
+</table>

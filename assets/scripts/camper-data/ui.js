@@ -28,9 +28,7 @@ const showCamperSuccess = data => {
   } else {
     editable = false
   }
-  // console.log('editable ', editable)
   const displayCamper = camperDisplay({ camper: data.camper, editable: editable })
-  // console.log(data)
   $('.show-camper-content').html(displayCamper)
   $('.btn-primary').on('click', () => {
     $('.show-camper-content').html('')
@@ -48,6 +46,7 @@ const showCamperFailure = data => {
 
 const createCamperSuccess = data => {
   $('form').trigger('reset')
+  showCamperSuccess(data)
 }
 
 const createCamperFailure = data => {
@@ -66,8 +65,11 @@ const deleteCamperSuccess = data => {
   }, 5000)
 }
 
+const deleteCamperFailure = data => {
+  $('.content-message').html(badRequest)
+}
+
 const updateCamperSuccess = (data, id) => {
-  console.log(data)
   $('.content-message').html({ updated: true })
   let editable
   if (data.camper.user.id === store.user.id) {
@@ -75,9 +77,7 @@ const updateCamperSuccess = (data, id) => {
   } else {
     editable = false
   }
-  // console.log('editable ', editable)
   const displayCamper = camperDisplay({ camper: data.camper, editable: editable })
-  // console.log(data)
   $('.show-camper-content').html(displayCamper)
   $('.btn-primary').on('click', () => {
     $('.show-camper-content').html('')
@@ -85,12 +85,15 @@ const updateCamperSuccess = (data, id) => {
   $('#editModalScrollable').modal('hide')
 }
 
+const updateCamperFailure = data => {
+  $('.edit-message').html(badRequest)
+}
+
 $('#editModalScrollable').on('show.bs.modal', function (event) {
   const button = $(event.relatedTarget) // Button that triggered the modal
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
   const modal = $(this)
-  console.log(button.data('phone'))
   // button isn't working and the form isn't filling. bleh.
   modal.find('.modal-title').text(`Update ${button.data('first')}'s information`)
   modal.find('#first_name').val(button.data('first'))
@@ -110,5 +113,7 @@ module.exports = {
   createCamperSuccess,
   createCamperFailure,
   deleteCamperSuccess,
-  updateCamperSuccess
+  deleteCamperFailure,
+  updateCamperSuccess,
+  updateCamperFailure
 }

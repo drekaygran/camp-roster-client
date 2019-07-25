@@ -1,1 +1,53 @@
 @import '~bootstrap/scss/bootstrap';
+$tan: #d0a678;
+$steel-blue: #669ebd;
+$light-steel: #cdbfd0;
+$light-lilac: #e5dcef;
+$rosy-brown: #b1a18c;
+$dark-steel-blue: #294d60;
+$pale-steel: #e8e2e9;
+
+$fonts: $dark-steel-blue;
+
+body {
+  background-attachment: fixed;
+  background-image: url('../../photos/sign-in-page.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $fonts;
+}
+
+.btn {
+  margin: .5em;
+}
+
+.btn-primary {
+  background-color: $tan;
+  border: $tan;
+}
+
+.btn-secondary {
+  background-color: $light-lilac;
+  border: $light-lilac;
+}
+
+.camper-action {
+  height: 30vh;
+  width: 30vh;
+}
+
+.dropdown-toggle {
+  background-color: $dark-steel-blue;
+}
+
+.opaque {
+  background-color: $pale-steel;
+  height: 100vh;
+  opacity: .8;
+}
+
+.camper-info {
+  background-color: $pale-steel;
+  opacity: .8;
+}

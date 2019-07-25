@@ -61,16 +61,17 @@ const signInFailure = data => {
 }
 
 const changePasswordSuccess = data => {
-  const successMessage = changePasswordMessage({ input: data })
+  const successMessage = changePasswordMessage({ input: true })
   $('.auth-message').html(successMessage)
   setTimeout(() => {
     $('.auth-message').html('')
   }, 5000)
   $('form').trigger('reset')
+  $('#change-password-modal').modal('hide')
 }
 
 const changePasswordFailure = data => {
-  const errorMessage = changePasswordMessage({ input: '' })
+  const errorMessage = changePasswordMessage({ input: false })
   $('.auth-message').html(errorMessage)
   setTimeout(() => {
     $('.auth-message').html('')
