@@ -1,9 +1,9 @@
 
 const getFormFields = require(`../../../lib/get-form-fields`)
-// const store = require('./../store')
 
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./../store')
 
 const onGetCampers = () => {
   api.getCampers()
@@ -13,12 +13,13 @@ const onGetCampers = () => {
 
 const onShowCamperOpen = () => {
   $('.hidden').hide()
-  $('.show-camper').show()
+  $('.show-camper-box').show()
 }
 
 const onShowCamper = event => {
   event.preventDefault()
   const searched = getFormFields(event.target)
+  store.id = searched.camper.id
   api.showCamper(searched.camper.id)
     .then(ui.showCamperSuccess)
     .catch(ui.showCamperFailure)
@@ -45,11 +46,15 @@ const onDeleteCamper = () => {
     .catch(console.log)
 }
 
-// const openEditCamperForm = () => {
-//   const idToEdit = $('.edit-camper').attr('value')
-//   console.log('hello', idToEdit)
-//   $('.edit-camper-form').html(editCamper({ id: idToEdit }))
-// }
+const onUpdateCamper = event => {
+  // debugger
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(store.id)
+  api.updateCamper(data, store.id)
+    .then(ui.updateCamperSuccess)
+    .catch(console.log)
+}
 
 const addHandlers = () => {
   $('.get-campers').on('click', onGetCampers)
@@ -58,7 +63,7 @@ const addHandlers = () => {
   $('.show-camper-button').on('click', onShowCamperOpen)
   $('.show-camper').on('submit', onShowCamper)
   $('#delete-camper-final').on('click', onDeleteCamper)
-  // $('.edit-camper').on('click', openEditCamperForm)
+  $('.edit-camper-form').on('submit', onUpdateCamper)
 }
 
 module.exports = {

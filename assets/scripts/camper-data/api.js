@@ -37,9 +37,21 @@ const deleteCamper = id => {
   })
 }
 
+const updateCamper = (data, id) => {
+  return $.ajax({
+    url: config.apiUrl + '/campers/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   getCampers,
   createCamper,
   showCamper,
-  deleteCamper
+  deleteCamper,
+  updateCamper
 }
