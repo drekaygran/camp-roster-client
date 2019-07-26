@@ -47,6 +47,3 @@ Desktop
 #### Development Process and Problem Solving ####
 
 When I first started, my plan was to have each user in charge of a given camp session.  Then I would establish a one-to-many relationship between the session and the camper.  However, it made more sense to start by just having the relationship be between a user and camper.  A camp session is something I would add in later as a many-to-many relationship.  When faced with bugs or errors, I read errors carefully and inspected to the code that was referenced.  Sometimes I'd find the issue right away other times, I'd find it after deeper searching, googling, or asking for help.
-
-#### Entity Relationship Diagram ####
-![Imgur](https://i.imgur.com/ZHNffJY.jpg)

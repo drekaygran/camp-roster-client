@@ -67,7 +67,8 @@ const changePasswordSuccess = data => {
     $('.auth-message').html('')
   }, 5000)
   $('form').trigger('reset')
-  $('#change-password-modal').modal('hide')
+  $('.dropdown-toggle').dropdown('hide')
+  // $('#change-password-modal').modal('hide')
 }
 
 const changePasswordFailure = data => {

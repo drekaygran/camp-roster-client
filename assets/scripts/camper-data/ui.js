@@ -45,8 +45,11 @@ const showCamperFailure = data => {
 }
 
 const createCamperSuccess = data => {
+  $('.content-message').html(contentMessage({ created: true }))
   $('form').trigger('reset')
   showCamperSuccess(data)
+  console.log(data)
+  $('.create-camper').hide()
 }
 
 const createCamperFailure = data => {
