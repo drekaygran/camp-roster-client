@@ -6,6 +6,7 @@ const ui = require('./ui')
 const store = require('./../store')
 
 const onGetCampers = () => {
+  $('.hidden').hide()
   api.getCampers()
     .then(ui.displayCampers)
     .catch(ui.getCampersFailure)
