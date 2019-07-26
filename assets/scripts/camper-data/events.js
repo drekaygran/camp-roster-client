@@ -4,6 +4,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
+const home = require('../templates/home.handlebars')
 
 const onGetCampers = () => {
   $('.hidden').hide()
@@ -54,26 +55,26 @@ const onUpdateCamper = event => {
     .catch(ui.updateCamperFailure)
 }
 
-const moveButtons = () => {
-  $('.camper-action').width(15).height(15)
-  $('.home').width(15).height(15)
-}
+// const moveButtons = () => {
+//   $('.camper-action').width(15).height(15)
+//   $('.home').width(15).height(15)
+// }
 
-const revertToOriginalSize = () => {
-  $('.camper-action').width(30).height(30)
-  $('.home').width(30).height(30)
+const onHome = () => {
+  $('.home-page').html(home)
+  $('.hidden').hide()
 }
 
 const addHandlers = () => {
-  $('.get-campers').on('click', onGetCampers)
-  $('.create-camper-button').on('click', onCreateCamperOpen)
-  $('.create-camper-form').on('submit', onCreateCamper)
-  $('.show-camper-button').on('click', onShowCamperOpen)
-  $('.show-camper').on('submit', onShowCamper)
-  $('#delete-camper-final').on('click', onDeleteCamper)
-  $('.edit-camper-form').on('submit', onUpdateCamper)
-  $('.camper-action').on('click', moveButtons)
-  $('.home').on('click', revertToOriginalSize)
+  $('html').on('click', '.get-campers', onGetCampers)
+  $('html').on('click', '.create-camper-button', onCreateCamperOpen)
+  $('html').on('submit', '.create-camper-form', onCreateCamper)
+  $('html').on('click', '.show-camper-button', onShowCamperOpen)
+  $('html').on('submit', '.show-camper', onShowCamper)
+  $('html').on('click', '#delete-camper-final', onDeleteCamper)
+  $('html').on('submit', '.edit-camper-form', onUpdateCamper)
+  // $('html').on('click', '.camper-action', moveButtons)
+  $('html').on('click', '.home', onHome)
   // $('.show-camper-content').on('click', 'data('id')', )
 }
 

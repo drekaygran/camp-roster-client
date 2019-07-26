@@ -11,9 +11,9 @@
     </tr>
   </thead>
   {{#each campers as |camper|}}
-    <div data-id="{{camper.id}}">
+    <div>
       <tbody>
-        <tr>
+        <tr data-id="{{camper.id}}">
           <th scope="row">{{camper.id}}</th>
           <td>{{camper.first_name}} {{camper.last_name}}</td>
           <td>{{camper.allergies}}</td>
