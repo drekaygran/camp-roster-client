@@ -5,7 +5,7 @@ const camperDisplay = require('../templates/camper-display.handlebars')
 const store = require('./../store')
 // const api = require('./api')
 const badRequest = contentMessage({ input: 'error' })
-const events = require('./events')
+// const events = require('./events')
 
 const displayCampers = data => {
   const displayTable = campersTable({ campers: data.campers })
@@ -52,7 +52,6 @@ const createCamperSuccess = data => {
   // events.onShowCamperOpen()
   const displayCamper = camperDisplay({ camper: data.camper, editable: true })
   $('.show-camper-content').html(displayCamper)
-  console.log(data)
   $('.create-camper').hide()
 }
 

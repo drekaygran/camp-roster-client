@@ -1,13 +1,13 @@
+<div class="table-responsive">
 <table class="table table-hover col m-5">
   <thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
-      <th scope="col">Allegies</th>
+      <th scope="col">Allergies</th>
       <th scope="col">Date of Birth</th>
       <th scope="col">Parent's Name</th>
-      <th scope="col">Parent's Email</th>
-      <th scope="col">Parent's Phone</th>
+      <th scope="col">Parent's Contact Info</th>
     </tr>
   </thead>
   {{#each campers as |camper|}}
@@ -19,10 +19,10 @@
           <td>{{camper.allergies}}</td>
           <td>{{camper.dob}}</td>
           <td>{{camper.parent_name}}</td>
-          <td>{{camper.parent_email}}</td>
-          <td>{{camper.parent_phone}}</td>
+          <td>{{camper.parent_email}} <br> {{camper.parent_phone}}</td>
         </tr>
       </tbody>
 {{/each}}
   </tbody>
 </table>
+</div>
