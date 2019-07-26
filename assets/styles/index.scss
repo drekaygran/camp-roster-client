@@ -22,7 +22,7 @@ body {
   color: $light-lilac;
   margin: .5em;
 
-  :hover {
+  &:hover {
     background-color: $dark-steel-blue;
     }
 }
@@ -47,10 +47,5 @@ body {
 .opaque {
   background-color: $pale-steel;
   min-height: 100vh;
-  opacity: .8;
-}
-
-.camper-info {
-  background-color: $pale-steel;
-  opacity: .8;
+  opacity: .85;
 }

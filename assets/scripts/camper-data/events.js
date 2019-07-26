@@ -66,7 +66,7 @@ const revertToOriginalSize = () => {
 const addHandlers = () => {
   $('.get-campers').on('click', onGetCampers)
   $('.create-camper-button').on('click', onCreateCamperOpen)
-  $('.create-camper').on('submit', onCreateCamper)
+  $('.create-camper-form').on('submit', onCreateCamper)
   $('.show-camper-button').on('click', onShowCamperOpen)
   $('.show-camper').on('submit', onShowCamper)
   $('#delete-camper-final').on('click', onDeleteCamper)
